@@ -10,5 +10,8 @@ jobs:
  
     steps:
     - uses: actions/checkout@v1
+    - name: Build Salt Common
+      run: docker build . --file Dockerfile-salt-common --tag daveneeley/salt-common:$(date +%s)
+
     - name: Build the Salt Master
       run: docker build . --file Dockerfile --tag daveneeley/salt-master:$(date +%s)
